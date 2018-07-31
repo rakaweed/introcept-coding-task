@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::orderBy('id')->get();
-        return view('users.index', ['users' => $users]);
+        return view('users.index', ['users' => $users, 'data_from' => 'DB']);
     }
 
     public function usersFromCSV()
@@ -41,7 +41,7 @@ class UserController extends Controller
             }
         }
         $users = json_decode(json_encode($users));
-        return view('users.index', ['users' => $users]);
+        return view('users.index', ['users' => $users, 'data_from' => 'CSV']);
     }
 
     /**
@@ -75,10 +75,10 @@ class UserController extends Controller
         ]);
 
         /* Save to database */
-        /*$data = $request->all();
+        $data = $request->all();
         User::create($data);
         Session::flash('success', $data['name'] . ' added successfully!');
-        return redirect('users');*/
+        // return redirect('users');
         /* Save to database */
 
         /* Save to CSV File */
@@ -96,13 +96,18 @@ class UserController extends Controller
         } 
 
         // Append the new data to the existing CSV file
-        if (($handle = fopen($filename, 'a')) !== false) {
-            fputcsv($handle, $data_values);
+        if (($handle = fopen($filename, 'a+')) !== false) {
+            if((($row = fgetcsv($handle, 1000, ',')) !== false) && count($row)>0) {
+                fputcsv($handle, $data_values);
+            } else {
+                fputcsv($handle, $data_header);
+                fputcsv($handle, $data_values);
+            }
             fclose($handle);
         }
 
         Session::flash('success', $data['name'] . ' added to CSV successfully!');
-        return redirect('usersFromCSV');
+        return redirect('users/fromCSV');
         /* Save to CSV File */
     }
 

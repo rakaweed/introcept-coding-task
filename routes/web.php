@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'UserController@index');
+
+Route::get('users/fromCSV', 'UserController@usersFromCSV');
 
 Route::resource('users', 'UserController');
-Route::get('usersFromCSV', 'UserController@usersFromCSV');
