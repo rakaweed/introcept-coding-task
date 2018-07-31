@@ -13,7 +13,7 @@ It is a web application that stores user information from an HTML table to a CSV
 - Create a mysql database named ***laravel***
 - Open command prompt (or a shell or terminal of choice) and navigate inside the project folder.
 - Run the following command to create necessary tables on the database: ***php artisan migrate*** 
-- Run the following command to server the application: ***php artisan serve*** 
+- Run the following command to serve the application: ***php artisan serve*** 
 - Note the given url and navigate to it from the browser.
 
 ### Sitemap
