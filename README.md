@@ -2,7 +2,7 @@
 Laravel Create and Read Operations
 
 ### About the application
-It is a web application that stores user information from an HTML table to a CSV file and also reads from that CSV file and displays it as a list.
+It is a web application that stores user information from an HTML form to a CSV file and also reads from that CSV file and displays it as a list.
 
 ### Technologies used
 - Laravel (PHP framework)
@@ -12,9 +12,9 @@ It is a web application that stores user information from an HTML table to a CSV
 - Clone the repository or download as a zip file and extract.
 - Create a mysql database named ***laravel***
 - Open command prompt (or a shell or terminal of choice) and navigate inside the project folder.
-- Run the following command to create necessary tables on the database: ***php artisan migrate*** 
+- Run the following command to create the necessary tables on the database: ***php artisan migrate*** 
 - Run the following command to serve the application: ***php artisan serve*** 
-- Note the given url and navigate to it from the browser.
+- Note the given url and navigate to it from a browser.
 
 ### Sitemap
 **Suppose the given url is _http://127.0.0.1:8000_**  
@@ -29,7 +29,7 @@ It is a web application that stores user information from an HTML table to a CSV
 
 ### Things to do
 - [x] Table for adding users.
-- [x] Store users data from HTML table into CSV file.
+- [x] Store users data from HTML form into CSV file.
 - [x] Read from CSV file to display the users list.
 - [x] Store users information to database table.
 - [x] Read users information from database to display the users list.
